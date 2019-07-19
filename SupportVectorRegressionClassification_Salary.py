@@ -25,7 +25,10 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 from sklearn.preprocessing import StandardScaler
 sc = StandardScaler()
 X_train = sc.fit_transform(X_train)
-X_test  = sc.fit_transform(X_test)
+X_test  = sc.transform(X_test)
+
+#print(X_train)
+print (X_test)
 
 #Fitting SVM to the Training Set
 from sklearn.svm import SVC
@@ -47,6 +50,8 @@ print (pkl_model)
 
 from sklearn.metrics import confusion_matrix
 cm = confusion_matrix(y_test, y_pred)
+
+print(cm)
                                                   
 # Visualising the Training set Results
 from matplotlib.colors import ListedColormap

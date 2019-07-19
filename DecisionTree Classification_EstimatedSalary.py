@@ -10,6 +10,8 @@ dataset = pd.read_csv('Social_Network_Ads.csv')
 x = dataset.iloc[:, [2, 3]].values
 y = dataset.iloc[:, 4].values
 
+print(x)
+print(y)
 #x = x.reshape(-1, 1)
 #y = y.reshape(-1, 1)
 
@@ -69,6 +71,11 @@ file_name = 'DecisionTreeClassification.pkl'
 pkl_file = open(file_name, 'wb')
 model = pickle.dump(classifier, pkl_file)
 
+
+#Load the model from the Disk
+
+
+
 #Loading pickle model to predict data from test_data.csv file
 pkl_file = open(file_name, 'rb')
 model_pkl = pickle.load(pkl_file)
@@ -78,6 +85,8 @@ dataset_testdata = pd.read_csv('testdata.csv')
 x_testdata = dataset_testdata.iloc[:, (len(data.columns)-1): len(dataSet)]
 y_testdata = dataset_testdata.iloc[:, y_index:(y_index+1)]
 y_pred_pkl = model_pkl.predict(np.array([6.5]).reshape(-1,1))
+
+
 
 
 
